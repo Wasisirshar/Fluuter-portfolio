@@ -13,19 +13,29 @@ class AppTextStyle {
     );
   }
 
-  static TextStyle monteseratStyle() {
+  static TextStyle monteseratStyle({required Color color}) {
     return GoogleFonts.montserrat(
-        color: Colors.white,
-        fontWeight: FontWeight.bold,
+        color: color,
+        fontWeight: FontWeight.w600,
         fontSize: 24
     );
   }
 
   static TextStyle HeadingStyle() {
-    return GoogleFonts.montserrat(
+    return GoogleFonts.dancingScript(
       color: Colors.white,
-      fontWeight: FontWeight.w800,
-      fontSize: 30,
+      fontWeight: FontWeight.w900,
+      fontSize: 52,
+      letterSpacing: 2,
+    );
+  }
+
+  static TextStyle NormalStyle(){
+    return GoogleFonts.signikaNegative(
+      fontWeight: FontWeight.w500,
+      fontSize: 17,
+        letterSpacing: 1,
+        color: Colors.white,
     );
   }
 
