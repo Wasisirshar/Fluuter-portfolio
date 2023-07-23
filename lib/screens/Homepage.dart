@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:potfolio_ap/screens/app_assets.dart';
 import 'package:potfolio_ap/screens/app_color.dart';
 import 'package:potfolio_ap/screens/app_text_style.dart';
 
@@ -118,31 +119,85 @@ class HomePage extends StatelessWidget {
                     const SizedBox(
                       height: 15,
                     ),
-                  Container( width: size.width * 0.5,
-                    child: Text(
-                          'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-                              ' Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when ,'
-                              'an unknown printer took a galley of type and scrambled it to make a type specimen book. ', style: AppTextStyle.NormalStyle(),),
-                  ),
-                    SizedBox(height: 15,),
+                    Container(
+                      width: size.width * 0.5,
+                      child: Text(
+                        'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+                        ' Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when ,'
+                        'an unknown printer took a galley of type and scrambled it to make a type specimen book. ',
+                        style: AppTextStyle.NormalStyle(),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
                     Row(
                       children: [
-                        CircleAvatar(
-                          maxRadius: 22,
-                          backgroundColor: AppColor.themeColor,
-                          child: CircleAvatar(
-                            maxRadius: 20,
-                            backgroundColor: AppColor.bgColor,
-                            child: Image.asset('../assets/face.png',height: 20,width: 20,),
-                          ),
-                        )
+                        buildSocialButton(AppAssets.facebook),
+                        SizedBox(
+                          width: 12,
+                        ),
+                        buildSocialButton(AppAssets.twitter),
+                        SizedBox(
+                          width: 12,
+                        ),
+                        buildSocialButton(AppAssets.linkedIn),
+                        SizedBox(
+                          width: 12,
+                        ),
+                        buildSocialButton(AppAssets.insta),
+                        SizedBox(
+                          width: 12,
+                        ),
+                        buildSocialButton(AppAssets.github),
                       ],
+                    ),
+                    SizedBox(
+                      height: 18,
+                    ),
+                    MaterialButton(
+                      onPressed: () {},
+                      color: AppColor.themeColor,
+                      splashColor: AppColor.lawGreen,
+                      padding: EdgeInsets.symmetric(horizontal: 16,vertical: 10),
+                      shape: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: BorderSide.none
+                      ),
+                      height: 46,
+                      minWidth: 130,
+                      elevation: 6,
+                      hoverColor: AppColor.aqua,
+                      child: Text(
+                        'Download CV',
+                        style: AppTextStyle.HeaderTextStyle(),
+                      ),
                     )
                   ],
                 )
               ],
             )
           ],
+        ),
+      ),
+    );
+  }
+
+  CircleAvatar buildSocialButton(String asset) {
+    return CircleAvatar(
+      maxRadius: 20,
+      backgroundColor: AppColor.themeColor,
+      child: InkWell(
+        child: CircleAvatar(
+          maxRadius: 18,
+          backgroundColor: AppColor.bgColor,
+          child: Image.asset(
+            asset,
+            height: 24,
+            width: 20,
+            color: AppColor.themeColor,
+            fit: BoxFit.contain,
+          ),
         ),
       ),
     );
